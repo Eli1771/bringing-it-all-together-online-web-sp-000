@@ -60,7 +60,7 @@ class Dog
       WHERE name = ?
       SQL
     row = DB[:conn].execute(sql, name)[0] 
-    if !row.empty?
+    if !row.empty? && breed == row[2]
       db_id, db_name, db_breed = row[0], row[1], row[2]
       if breed == db_breed 
         dog = self.new(id: db_id, name: db_name, breed: db_breed)
