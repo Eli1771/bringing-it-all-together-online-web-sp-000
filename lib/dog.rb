@@ -62,7 +62,11 @@ class Dog
     row = DB[:conn].execute(sql, name)[0] 
     if !row.empty?
       db_id, db_name, db_breed = row[0], row[1], row[2]
-      dog = self.new(id: row[0], name: name, breed: breed)
+      if breed == db_breed 
+        dog = self.new(id: db_id, name: db_name, breed: db_breed)
+      else 
+        self.create(name, breed)
+      end 
     else 
       self.create
     end
