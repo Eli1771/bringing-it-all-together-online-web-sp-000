@@ -58,11 +58,9 @@ class Dog
     sql = <<-SQL 
       SELECT * FROM dogs 
       WHERE name = ?
-      AND breed = ?
-      LIMIT 1
       SQL
-    row = DB[:conn].execute(sql, name, breed)[0]
-    if !row.empty?
+    row = DB[:conn].execute(sql, name)[0] 
+    if !row.empty? && breed == row[2]
       dog = self.new(id: row[0], name: row[1], breed: row[2])
     else 
       self.create(name: name, breed: breed)
