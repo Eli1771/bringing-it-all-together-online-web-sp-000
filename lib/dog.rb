@@ -63,10 +63,7 @@ class Dog
     if !row.empty?
       dog = self.new(id: row[0], name: name, breed: breed)
     else 
-      sql = <<-SQL 
-        INSERT INTO dogs (name, breed) 
-        VALUES (?, ?)
-        SQL
+      self.create
     end
   end
   
