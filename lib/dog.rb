@@ -65,7 +65,7 @@ class Dog
       if breed == db_breed 
         dog = self.new(id: db_id, name: db_name, breed: db_breed)
       else 
-        self.create(name, breed)
+        self.create(name: name, breed: breed)
       end 
     else 
       self.create(name, breed)
