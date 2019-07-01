@@ -61,7 +61,7 @@ class Dog
       AND breed = ?
       SQL
     row = DB[:conn].execute(sql, name, breed)[0] 
-    if !row.empty? && breed == row[2]
+    if !row.empty?
       dog = self.new(id: row[0], name: row[1], breed: row[2])
     else 
       self.create(name: name, breed: breed)
