@@ -59,6 +59,7 @@ class Dog
       SELECT * FROM dogs 
       WHERE name = ?
       AND breed = ?
+      LIMIT 1
       SQL
     row = DB[:conn].execute(sql, name, breed)[0] 
     if !row.empty?
