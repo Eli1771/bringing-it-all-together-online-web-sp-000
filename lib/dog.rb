@@ -68,7 +68,7 @@ class Dog
         self.create(name: name, breed: breed)
       end 
     else 
-      self.create(name, breed)
+      self.create(name: name, breed: breed)
     end
   end
   
